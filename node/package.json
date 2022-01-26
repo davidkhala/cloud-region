@@ -1,0 +1,12 @@
+{
+  "name": "@davidkhala/cloud-region",
+  "version": "1.0.0",
+  "dependencies": {
+    "@google-cloud/compute": "latest",
+    "@davidkhala/gcp": "latest"
+  },
+  "devDependencies": {
+    "mocha": "latest"
+  },
+  "type": "module"
+}
