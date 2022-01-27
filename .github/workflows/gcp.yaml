@@ -7,8 +7,8 @@ jobs:
       run:
         working-directory: node
     steps:
-      - uses: actions/checkout
-      - uses: actions/setup-node
+      - uses: actions/checkout@latest
+      - uses: actions/setup-node@latest
         with:
           node-version: 14.x
       - run: npm install
