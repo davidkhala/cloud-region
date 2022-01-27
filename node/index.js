@@ -1,5 +1,4 @@
 import {RegionsClient} from "@google-cloud/compute"
-import {getOption} from "@davidkhala/gcp/auth.js"
 
 export class GCPRegion {
 	constructor(projectId, client_email, private_key) {
@@ -16,15 +15,7 @@ export class GCPRegion {
 
 	async list() {
 
-		const [res] = await this.client.list({project: this.projectId},);
+		const [res] = await this.client.list({project: this.projectId});
 		return res.map(({name}) => name)
 	}
 }
-
-
-async function main() {
-
-
-}
-
-main()
