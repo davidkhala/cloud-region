@@ -10,5 +10,6 @@ describe('gcp', function () {
 		const gcp = new GCPRegion(projectId, clientEmail, private_key)
 		const result = await gcp.list()
 		console.debug(result)
+
 	})
 })
