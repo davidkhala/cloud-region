@@ -18,6 +18,8 @@ describe('aws', function () {
     this.timeout(0)
     it('', async () => {
         const regions = await getAWS()
-        console.debug(regions)
+        for(const region of regions){
+            console.debug(region)
+        }
     })
 })
