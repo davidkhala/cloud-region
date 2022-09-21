@@ -1,8 +1,9 @@
 {
   "name": "@davidkhala/cloud-region",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "dependencies": {
-    "@google-cloud/compute": "latest"
+    "@davidkhala/gcp-compute": "latest",
+    "@davidkhala/aws-ec2": "latest"
   },
   "scripts": {
     "test": "mocha test"

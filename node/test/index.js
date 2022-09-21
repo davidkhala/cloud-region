@@ -1,15 +1,23 @@
-import {GCPRegion} from '../index.js'
+import {getGCP, getAWS} from '../index.js'
 
 describe('gcp', function () {
-	this.timeout(0)
-	it('connect', async () => {
-		const projectId = 'freetier-only'
-		const clientEmail = 'cloud-region@freetier-only.iam.gserviceaccount.com'
-		const {private_key} = process.env
-
-		const gcp = new GCPRegion(projectId, clientEmail, private_key)
-		const result = await gcp.list()
-		console.debug(result)
-
-	})
+    this.timeout(0)
+    it('with projectId', async () => {
+        const projectId = 'freetier-only'
+        const result = await getGCP(projectId)
+        console.debug(result)
+        // 827ms
+    })
+    it('without projectId', async () => {
+        const result = await getGCP()
+        console.debug(result)
+        // 2488ms
+    })
+})
+describe('aws', function () {
+    this.timeout(0)
+    it('', async () => {
+        const regions = await getAWS()
+        console.debug(regions)
+    })
 })
