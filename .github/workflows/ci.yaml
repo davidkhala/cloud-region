@@ -1,0 +1,30 @@
+name: access
+on: push
+defaults:
+  run:
+    working-directory: node
+jobs:
+  gcp:
+    runs-on: ubuntu-latest
+    environment: gcp
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - run: npm install
+      - run: npx mocha test/gcp.js
+        env:
+          private_key: ${{ secrets.PRIVATE_KEY }}
+          client_email: ${{ vars.CLIENT_EMAIL }}
+  aws:
+    runs-on: ubuntu-latest
+    environment: aws
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@main
+      - uses: aws-actions/configure-aws-credentials@main
+        with:
+          aws-access-key-id: ${{ vars.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-east-1
+      - run: npm install
+      - run: npx mocha test/aws.js
