@@ -2,7 +2,7 @@ import {Region} from "@davidkhala/gcp-compute/region.js"
 import EC2 from "@davidkhala/aws-ec2/index.js"
 
 export async function getGCP({client_email, private_key, projectId}) {
-    const client = new Region(projectId)
+    const client = new Region(projectId, client_email, private_key)
     if (!projectId) {
         await client.connect()
     }

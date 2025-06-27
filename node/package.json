@@ -5,9 +5,6 @@
     "@davidkhala/gcp-compute": "latest",
     "@davidkhala/aws-ec2": "latest"
   },
-  "scripts": {
-    "test": "mocha test"
-  },
   "devDependencies": {
     "mocha": "latest"
   },
