@@ -2,8 +2,11 @@
   "name": "@davidkhala/cloud-region",
   "version": "0.0.0",
   "dependencies": {
-    "@davidkhala/gcp-compute": "latest",
-    "@davidkhala/aws-ec2": "latest"
+    "@davidkhala/gcp-format": "latest",
+    "@davidkhala/aws-ec2": "latest",
+    "@davidkhala/axios": "latest",
+    "@davidkhala/light": "latest",
+    "@davidkhala/csv": "latest"
   },
   "devDependencies": {
     "mocha": "latest"
