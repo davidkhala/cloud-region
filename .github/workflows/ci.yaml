@@ -6,15 +6,19 @@ defaults:
 jobs:
   gcp:
     runs-on: ubuntu-latest
-    environment: gcp
+    permissions:
+      contents: 'read'
+      id-token: 'write'
     steps:
       - uses: actions/checkout@main
+      - uses: google-github-actions/auth@v2
+        with:
+          service_account: 'cloud-region@freetier-only.iam.gserviceaccount.com'
+          workload_identity_provider: 'projects/207043494928/locations/global/workloadIdentityPools/github/providers/github-action'
       - uses: actions/setup-node@main
       - run: npm install
       - run: npx mocha test/gcp.js
-        env:
-          private_key: ${{ secrets.PRIVATE_KEY }}
-          client_email: ${{ vars.CLIENT_EMAIL }}
+      - run: git status
   aws:
     runs-on: ubuntu-latest
     environment: aws
