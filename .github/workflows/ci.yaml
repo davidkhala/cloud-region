@@ -1,10 +1,10 @@
-name: access
 on: push
 defaults:
   run:
     working-directory: node
 jobs:
   gcp:
+    # based on https://github.com/davidkhala/gcp-collection/blob/main/.github/workflows/wif.yaml
     runs-on: ubuntu-latest
     permissions:
       contents: 'write'
