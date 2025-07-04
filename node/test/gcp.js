@@ -12,10 +12,10 @@ describe('location finder', function () {
         const file = '../regions.csv'
         const {data, meta} = FromFile(file, false, ',')
 
-        const fields = ['Country Code','AWS ', 'AZURE', 'GCP', 'OCI']
+        const fields = ['Country Code', 'AWS', 'AZURE', 'GCP', 'OCI']
         for (const row of data) {
             const code = row['Country Code']
-            let query = new QueryBuilder().condition('territory_code', '=', code)
+            const query = new QueryBuilder().condition('territory_code', '=', code)
             const results = await f.list(query.build())
             if (results) {
                 const aws = [], azure = [], gcp = [], oci = []
@@ -42,7 +42,7 @@ describe('location finder', function () {
             }
 
         }
-        fs.writeFileSync(file,ToFile({data,fields}, {newline: meta.linebreak}))
+        fs.writeFileSync(file, ToFile({data, fields}, {newline: meta.linebreak}))
 
     })
 })
