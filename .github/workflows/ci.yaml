@@ -7,7 +7,7 @@ jobs:
   gcp:
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
+      contents: 'write'
       id-token: 'write'
     steps:
       - uses: actions/checkout@main
@@ -18,7 +18,9 @@ jobs:
       - uses: actions/setup-node@main
       - run: npm install
       - run: npx mocha test/gcp.js
-      - run: git status
+      - uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          file_pattern: regions.csv
   aws:
     runs-on: ubuntu-latest
     environment: aws
