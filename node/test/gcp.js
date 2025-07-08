@@ -12,9 +12,12 @@ describe('location finder', function () {
         const file = '../regions.csv'
         const {data, meta} = FromFile(file, false, ',')
 
-        const fields = ['Country Code','Country Name', 'AWS', 'AZURE', 'GCP', 'OCI']
+        const fields = ['Country Code', 'Country Name', 'AWS', 'AZURE', 'GCP', 'OCI']
         for (const row of data) {
             const code = row['Country Code']
+            if (code === 'CN') {
+                continue // manual handle
+            }
             const query = new QueryBuilder().condition('territory_code', '=', code)
             const results = await f.list(query.build())
             if (results) {

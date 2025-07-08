@@ -46,7 +46,7 @@ CI,Côte d'Ivoire,,,,
 CK,Cook Islands,,,,
 CL,Chile,,chilecentral,southamerica-west1,"sa-santiago-1,sa-valparaiso-1"
 CM,Cameroon,,,,
-CN,China,,,,
+CN,China,"cn-north-1,cn-northwest-1","chinaeast,chinaeast2,chinaeast3,chinanorth,chinanorth2,chinanorth3",,
 CO,Colombia,,,,sa-bogota-1
 CR,Costa Rica,,,,
 CU,Cuba,,,,
